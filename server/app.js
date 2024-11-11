@@ -1,12 +1,12 @@
 const createError = require('http-errors');
 const express = require('express');
+const db = require('./model');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 app.use(cors());
@@ -17,12 +17,15 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("db has been re sync")
+})
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+app.use('/api/users', userRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
