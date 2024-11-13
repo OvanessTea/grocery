@@ -1,22 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-    const Group = sequelize.define('Group', {
+    const GroupUser = sequelize.define('GroupUser', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
-            type: DataTypes.STRING,
+        group_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
-        link: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        admin_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
     }, {timestamps: true}, )
-    return Group;
+    return GroupUser;
 }
