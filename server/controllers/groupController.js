@@ -1,5 +1,4 @@
 // Importing required modules
-const bcrypt = require('bcrypt');
 const db = require('../model');
 
 // Assigning the Group model to a constant
