@@ -14,5 +14,5 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.users = require('./userModel')(sequelize, DataTypes);
-
+db.groups = require('./groupModel')(sequelize, DataTypes);
 module.exports = db;
