@@ -7,7 +7,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
-
+const groupRoutes = require('./routes/groupRoutes');
 const app = express();
 app.use(cors());
 
@@ -26,6 +26,7 @@ db.sequelize.sync({ force: true }).then(() => {
 
 // app.use('/', indexRouter);
 app.use('/api/users', userRoutes);
+app.use('/api/groups', groupRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
