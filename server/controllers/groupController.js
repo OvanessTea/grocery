@@ -98,4 +98,19 @@ const deleteGroup = async (req, res) => {
     }
 };
 
-module.exports = { createGroup, getGroups, joinGroup, leaveGroup, deleteGroup };
+const updateGroupName  = async (req, res) => {
+    try {
+        const { group_id, name } = req.body;
+        const group = await Group.findByPk(group_id);
+        if (group) {
+            const updated_group = await Group.update({ name: name }, { where: { id: group_id } });
+            res.status(200).send(updated_group);
+        } else {
+            res.status(404).send("Group not found");
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+module.exports = { createGroup, getGroups, joinGroup, leaveGroup, deleteGroup, updateGroupName };
