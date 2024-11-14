@@ -98,6 +98,9 @@ const deleteGroup = async (req, res) => {
     }
 };
 
+// Updating the name of a group
+// The group_id is the id of the group to be updated
+// The name is the new name of the group
 const updateGroupName  = async (req, res) => {
     try {
         const { group_id, name } = req.body;
@@ -113,4 +116,5 @@ const updateGroupName  = async (req, res) => {
     }
 };
 
+// Exporting the functions
 module.exports = { createGroup, getGroups, joinGroup, leaveGroup, deleteGroup, updateGroupName };
