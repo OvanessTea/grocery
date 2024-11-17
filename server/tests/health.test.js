@@ -1,8 +1,7 @@
-import chai from 'chai';
+import { expect, test, describe } from 'vitest'
 import { healthCheckSync, healthCheckAsync }  from '../controllers/healthController';
-const expect = chai.expect;
 
-describe('Test /health', () => {
+test('Test /health', () => {
     /**
      * Uncomment below to see hooks in action
      */
@@ -25,14 +24,14 @@ describe('Test /health', () => {
     describe('Health check on /sync', () => {
       it('health should be okay', () => {
         const actualResult = healthCheckSync();
-        expect(actualResult).to.equal('OK');
+        expect(actualResult).toBe('OK');
       });
     });
   
     describe('Health check on /async', () => {
       it('health should be okay', async () => {
         const actualResult = await healthCheckAsync();
-        expect(actualResult).to.equal('OK');
+        expect(actualResult).toBe('OK');
       });
     });
   });
