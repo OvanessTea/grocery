@@ -9,7 +9,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 const listRoutes = require('./routes/listRoutes');
-const healthCheckRoutes = require('./routes/healthCheckRoutes');
+const healthCheckRoutes = require('./routes/healthRoutes');
 const app = express();
 app.use(cors());
 
