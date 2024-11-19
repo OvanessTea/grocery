@@ -26,7 +26,6 @@ db.sequelize.sync({ force: true }).then(() => {
   console.log("db has been re sync")
 })
 
-// app.use('/', indexRouter);
 app.use('/api/users', userRoutes);
 app.use('/api/groups', groupRoutes);
 app.use('/api/lists', listRoutes);
